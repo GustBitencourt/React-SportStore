@@ -1,6 +1,19 @@
-import { Container, Paper, Grid, Typography, Button, TextField, List, ListItem, ListItemText, makeStyles } from '@material-ui/core/';
+import { Container, Paper, Grid, Typography, Button, List, ListItem, ListItemText, makeStyles } from '@material-ui/core/';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+      marginTop: '5px',
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center'
+    },
+  }));
 
 const Home = () => {
+const classes = useStyles();
+
   return (
     <Container maxWidth="xl">
       
