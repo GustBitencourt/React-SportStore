@@ -4,10 +4,9 @@ import {
   Typography,
   Button,
   List,
-  ListItem,
-  ListItemText,
   makeStyles,
 } from "@material-ui/core/";
+import Item from "../../components/Item";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,15 +28,11 @@ const Home = () => {
         <Paper className={classes.paper}>
           <Typography variant="h5">Categorias</Typography>
           <List>
-            <ListItem>
-              <ListItemText primary="Times nacionais" secondary="3" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Times internacionais" secondary="3" />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="Times históricos" secondary="3" />
-            </ListItem>
+            <Item name="Clubes Nacionais" quantidade="5"/>
+
+            <Item name="Clubes Internacionais" quantidade="3"/>
+            
+            <Item name="Camisas Retrôs" quantidade="4"/>
           </List>
         </Paper>
       </Grid>
