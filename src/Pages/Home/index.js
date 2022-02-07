@@ -88,13 +88,7 @@ const Home = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid container direction="row" xs={12}>
-        <TextField id="name" label="Name" fullWidth />
-        <TextField id="message" label="Message" fullWidth />
-      </Grid>
-      <Button variant="contained" color="primary">
-        Sent
-      </Button>
+      
     </Container>
   );
 };
