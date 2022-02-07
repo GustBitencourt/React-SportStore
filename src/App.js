@@ -1,14 +1,12 @@
 import { BrowserRouter } from 'react-router-dom';
-import { Container, Paper, Grid, Typography, Button, TextField, List, ListItem, ListItemText, makeStyles } from '@material-ui/core/';
-
-
+import MainRoutes from './routes/routes';
 
 const App = () => {
 
 
   return(
     <BrowserRouter>
-            
+      <MainRoutes />
     </BrowserRouter>
   )
 }
