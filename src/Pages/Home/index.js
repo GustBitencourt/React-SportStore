@@ -27,6 +27,16 @@ const Home = ({ products }) => {
     return container;
   })
 
+                    //transformando categorys em string
+  const category = categorys.map(JSON.stringify)
+                    //filtrando as informações
+                    .filter((item, index, arr) => {
+                      //retorno para as categorias não voltarem de maneira múltipla
+                      return arr.indexOf(item, index + 1) === -1;
+                    })
+                    //voltando informações para JSON
+                    .map(JSON.parse)
+
   return (
     <Grid container spacing={3} className={classes.root}>
       <Grid item xs={3}>
@@ -35,12 +45,14 @@ const Home = ({ products }) => {
           <List>
 
             { //pegando categorys para dinamizar categoria
-              categorys.map(category => {
-                <Item 
-                  key={category.id} 
-                  name={category.id} 
-                  //quantidade={category.id} 
-                />
+              category.map(category => {
+                return(
+                  <Item 
+                    key={category.id} 
+                    name={category.name} 
+                    //quantidade={category.id} 
+                  />
+                )
               })
             }
 
