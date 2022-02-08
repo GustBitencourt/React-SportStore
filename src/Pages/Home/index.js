@@ -1,10 +1,5 @@
-import {
-  Paper,
-  Grid,
-  Typography,
-  List,
-  makeStyles,
-} from "@material-ui/core/";
+import { connect } from 'react-redux';
+import { Paper, Grid, Typography, List, makeStyles } from "@material-ui/core/";
 import Item from "../../components/Item";
 import Card from "../../components/Card";
 
@@ -19,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Home = () => {
+const Home = ({ products }) => {
   const classes = useStyles();
 
   return (
@@ -36,22 +31,26 @@ const Home = () => {
           </List>
         </Paper>
       </Grid>
+
       <Grid container xs={9} spacing={3} className={classes.root}>
-        <Card name="Flamengo" price="129.90" urlImg="./images/produtos/fla.jpg">
-            Flamengo
-        </Card>
-        <Card name="Milan" price="129.90" urlImg="./images/produtos/milan.jpg">
-            Milan
-        </Card>
-        <Card name="Brasil" price="129.90" urlImg="./images/produtos/brasil.jpg">
-            Brasil
-        </Card>
-        <Card name="Arsenal" price="129.90" urlImg="./images/produtos/arsenal.jpg">
-            Arsenal
-        </Card>
+        
+        {products.map(item => {
+          return(
+            <Card key={item.id_product} name={item.name_product} price={item.price} urlImg={item.image}>
+              {item.name_product}
+            </Card>
+          )
+        })}
+
       </Grid>
     </Grid>
   );
 };
 
-export default Home;
+/* Pegando estado global  */
+const mapStateToProducts = state => ({
+  products: state.products
+})
+
+/* o import muda para funcionamento da store na aplicacao com o connect */
+export default connect(mapStateToProducts)(Home);
