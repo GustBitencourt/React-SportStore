@@ -27,7 +27,7 @@ const Home = ({ products }) => {
     return container;
   })
 
-                    //transformando categorys em string
+  //category para filtrar categorys sem repeticoes - transformando categorys em string
   const category = categorys.map(JSON.stringify)
                     //filtrando as informações
                     .filter((item, index, arr) => {
@@ -35,7 +35,21 @@ const Home = ({ products }) => {
                       return arr.indexOf(item, index + 1) === -1;
                     })
                     //voltando informações para JSON
-                    .map(JSON.parse)
+                    .map(JSON.parse);
+  
+  //pegando quantidade de itens
+  //pegando apenas os nomes
+  const arrayCategory = categorys.map(category => category.name);
+  //contando a quantidade de items por categoria
+  //objeto que vai armazenar a quantidade em contador
+  let count = { };
+  //for contando os items
+  for(let i = 0; i < arrayCategory.length; i++) {
+    // a chave do objeto será o nome da categoria
+    let key = arrayCategory[i];
+    //ternario somando as categorias com mesmo nome e fazendo a soma
+    count[key] = (count[key] ? count[key] + 1 : 1);
+  }
 
   return (
     <Grid container spacing={3} className={classes.root}>
@@ -50,7 +64,7 @@ const Home = ({ products }) => {
                   <Item 
                     key={category.id} 
                     name={category.name} 
-                    //quantidade={category.id} 
+                    quantidade={count[category.name]} 
                   />
                 )
               })
