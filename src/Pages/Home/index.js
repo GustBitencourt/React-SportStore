@@ -2,7 +2,6 @@ import {
   Paper,
   Grid,
   Typography,
-  Button,
   List,
   makeStyles,
 } from "@material-ui/core/";
