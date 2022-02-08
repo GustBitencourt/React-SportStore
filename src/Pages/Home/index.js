@@ -17,23 +17,40 @@ const useStyles = makeStyles((theme) => ({
 const Home = ({ products }) => {
   const classes = useStyles();
 
+  const categorys = products.map(category => {
+    //container vai armazenar as informações de category vinda da store/redux
+    const container = { }
+    //selecionando categoria que queremos
+    container['id'] = category.id_categorys;
+    container['name'] = category.name_categorys;
+
+    return container;
+  })
+
   return (
     <Grid container spacing={3} className={classes.root}>
       <Grid item xs={3}>
         <Paper className={classes.paper}>
           <Typography variant="h5">Categorias</Typography>
           <List>
-            <Item name="Clubes Nacionais" quantidade="5" />
 
-            <Item name="Clubes Internacionais" quantidade="3" />
+            { //pegando categorys para dinamizar categoria
+              categorys.map(category => {
+                <Item 
+                  key={category.id} 
+                  name={category.id} 
+                  //quantidade={category.id} 
+                />
+              })
+            }
 
-            <Item name="Camisas Retrôs" quantidade="4" />
           </List>
         </Paper>
       </Grid>
 
       <Grid container xs={9} spacing={3} className={classes.root}>
-        
+
+        {/* retornando os produtos vindo da store */}
         {products.map(item => {
           return(
             <Card key={item.id_product} name={item.name_product} price={item.price} urlImg={item.image}>
@@ -47,7 +64,7 @@ const Home = ({ products }) => {
   );
 };
 
-/* Pegando estado global  */
+/* Acessando estado global  */
 const mapStateToProducts = state => ({
   products: state.products
 })
