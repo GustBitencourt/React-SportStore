@@ -1,4 +1,4 @@
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Paper, Grid, Typography, List, makeStyles } from "@material-ui/core/";
 import Item from "../../components/Item";
 import Card from "../../components/Card";
@@ -14,7 +14,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Home = ({ products }) => {
+const Home = () => {
+  const products = useSelector(state => state.products);
+
   const classes = useStyles();
 
   const categorys = products.map(category => {
@@ -90,10 +92,4 @@ const Home = ({ products }) => {
   );
 };
 
-/* Acessando estado global  */
-const mapStateToProducts = state => ({
-  products: state.products
-})
-
-/* o import muda para funcionamento da store na aplicacao com o connect */
-export default connect(mapStateToProducts)(Home);
+export default Home;
