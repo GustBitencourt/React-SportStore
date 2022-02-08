@@ -32,7 +32,7 @@ const Header = () => {
       <div
         className="modal fade"
         id="CartModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="CartModalLabel"
         aria-hidden="true"
       >
