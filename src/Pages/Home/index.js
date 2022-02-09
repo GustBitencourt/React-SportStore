@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Home = () => {
+  //pegando os products
   const products = useSelector(state => state.products);
 
   const classes = useStyles();
