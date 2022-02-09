@@ -73,7 +73,7 @@ const Cart = () => {
                           />
                         </th>
                         <th>
-                          <span className="badge badge-pill bg-warning">2</span>
+                          <span className="badge badge-pill bg-warning">{item.quantity}</span>
                         </th>
                         <th>{item.price.toFixed(2)}</th>
                         <th>
@@ -86,7 +86,7 @@ const Cart = () => {
                             <i className="fas fa-minus"></i>
                           </button>
                         </th>
-                        <th>R$ 200.00</th>
+                        <th>R$ {(item.price * item.quantity).toFixed(2)}</th>
                       </tr>
                     );
                   })}
