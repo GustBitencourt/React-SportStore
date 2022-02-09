@@ -52,18 +52,18 @@ const Cart = () => {
                     <th scope="col">Preço</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
-                    <th scope="col">Total</th>
+                    {/* <th scope="col">Total</th> */}
                   </tr>
                 </thead>
                 <tbody>
                   {cart.Cart.map((item) => {
                     return (
                       <tr>
-                        <th>
+                        {/* <th>
                           <button className="badge bg-danger">
                             <i className="fas fa-window-close"></i>
                           </button>
-                        </th>
+                        </th> */}
                         <th>
                           <img
                             className="img-fluid img-thumbnail"
@@ -76,7 +76,7 @@ const Cart = () => {
                           <span className="badge badge-pill bg-warning">{item.quantity}</span>
                         </th>
                         <th>{item.price.toFixed(2)}</th>
-                        <th>
+                        {/* <th>
                           <button className="badge badge-pill bg-primary">
                             <i className="fas fa-plus"></i>
                           </button>
@@ -85,7 +85,7 @@ const Cart = () => {
                           <button className="badge badge-pill bg-danger">
                             <i className="fas fa-minus"></i>
                           </button>
-                        </th>
+                        </th> */}
                         <th>R$ {(item.price * item.quantity).toFixed(2)}</th>
                       </tr>
                     );
@@ -96,7 +96,7 @@ const Cart = () => {
                       Total
                     </th>
                     <th colSpan="3">{cart.value} itens</th>
-                    <th colSpan="2">R$ 200.00</th>
+                    {/* <th colSpan="2">R$ 200.00</th> */}
                   </tr>
                 </tbody>
               </table>
