@@ -1,6 +1,6 @@
-import { Paper, Grid, Typography, Button, makeStyles } from "@material-ui/core/";
-import { useSelector, useDispatch } from "react-redux";
-import cartActions from "../ReduxStore/actions/cart";
+import { Paper, Grid, Typography, Button, makeStyles } from '@material-ui/core/';
+import { useSelector, useDispatch } from 'react-redux';
+import cartActions from '../ReduxStore/actions/cart';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
