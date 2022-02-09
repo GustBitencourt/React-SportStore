@@ -5,7 +5,8 @@ import {
   Button,
   makeStyles,
 } from "@material-ui/core/";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import cartActions from '../ReduxStore/actions/cart';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -15,7 +16,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Card = ({ name, price, urlImg, children }) => {
-  const cart = useSelector(state => state.cart.value)
+
+  const cart = useSelector(state => state.cart.value);
+  const dispatch = useDispatch();
   const classes = useStyles();
 
   return (
@@ -24,12 +27,15 @@ const Card = ({ name, price, urlImg, children }) => {
         <Grid container direction="column">
           <Grid item>
             <img width="140px" src={urlImg} alt={name} />
+
             <Typography variant="h6">{children}</Typography>
             <Typography variant="subtitle1">R$ {price}</Typography>
+            
           </Grid>
+
           <Button 
             variant="contained"
-            onClick={console.log('vai corinthians')}
+            onClick={() => dispatch(cartActions.Add(cart))}
           >
             Adicionar          
           </Button>
