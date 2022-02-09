@@ -15,7 +15,16 @@ const AddItem = (cart, product) => {
     }
 }
 
+const RemoveItem = (cart, product) => {
+    return {
+        type: 'REMOVE_ITEM',
+        cart,
+        product
+    }
+}
+
 export default (
     Add,
-    AddItem
+    AddItem,
+    RemoveItem
 )

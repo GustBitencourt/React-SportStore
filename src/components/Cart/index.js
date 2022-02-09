@@ -1,5 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux';
-import cartActions from '../ReduxStore/actions/cart';
+import { useSelector, useDispatch } from "react-redux";
+import cartActions from "../ReduxStore/actions/cart";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -58,7 +58,6 @@ const Cart = () => {
                   </tr>
                 </thead>
                 <tbody>
-
                   {cart.Cart.map((item) => {
                     return (
                       <tr key={item.id}>
@@ -76,17 +75,29 @@ const Cart = () => {
                           />
                         </th>
                         <th>
-                          <span className="badge badge-pill bg-warning">{item.quantity}</span>
+                          <span className="badge badge-pill bg-warning">
+                            {item.quantity}
+                          </span>
                         </th>
                         <th>{item.price.toFixed(2)}</th>
                         <th>
                           {/* Passar item no lugar do product, ja que corresponde ao mesmo padrão de item */}
-                          <button className="badge badge-pill bg-primary" onClick={() => dispatch(cartActions.AddItem(cart, item))}>
+                          <button
+                            className="badge badge-pill bg-primary"
+                            onClick={() =>
+                              dispatch(cartActions.AddItem(cart, item))
+                            }
+                          >
                             <i className="fas fa-plus"></i>
                           </button>
                         </th>
                         <th>
-                          <button className="badge badge-pill bg-danger">
+                          <button
+                            className="badge badge-pill bg-danger"
+                            onClick={() =>
+                              dispatch(cartActions.RemoveItem(cart, item))
+                            }
+                          >
                             <i className="fas fa-minus"></i>
                           </button>
                         </th>
