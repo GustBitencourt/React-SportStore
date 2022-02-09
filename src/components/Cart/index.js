@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
 const Cart = () => {
-  const value = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart);
 
   return (
     <>
@@ -14,7 +14,7 @@ const Cart = () => {
         <span>
           <i className="fas fa-shopping-cart"></i>
         </span>
-        <span className="badge rounded-pill bg-info text-dark">3</span>
+        <span className="badge rounded-pill bg-info text-dark">{cart.value}</span>
       </button>
 
       {/* Modal */}

@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 }
 
 //lembrar de importar pro root reducer
-export default function cart(state = INITIAL_STATE) {
+export default function cart(state = INITIAL_STATE, action) {
     return state
 }
 
