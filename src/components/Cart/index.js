@@ -1,4 +1,8 @@
+import { useSelector } from "react-redux";
+
 const Cart = () => {
+  const value = useSelector((state) => state.cart);
+
   return (
     <>
       <button

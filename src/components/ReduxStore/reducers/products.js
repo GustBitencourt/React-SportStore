@@ -1,6 +1,6 @@
 import productsList from './productsList';
 
-//Simula consumo de api?
+//Simula consumo de api
 
 //productsList é uma "banco de dados"
 const PRODUCT = productsList;
