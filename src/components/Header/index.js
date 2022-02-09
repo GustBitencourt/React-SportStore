@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Button, Grid, Typography } from '@material-ui/core/';
+import Cart from '../Cart';
 
 const Header = () => {
   return (
@@ -18,7 +19,7 @@ const Header = () => {
         <Button color="primary">Contato</Button>
       </Link>
 
-      
+      <Cart />      
     </Grid>
   );
 };
