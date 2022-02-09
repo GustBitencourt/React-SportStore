@@ -14,7 +14,9 @@ const Cart = () => {
         <span>
           <i className="fas fa-shopping-cart"></i>
         </span>
-        <span className="badge rounded-pill bg-info text-dark">{cart.value}</span>
+        <span className="badge rounded-pill bg-info text-dark">
+          {cart.value}
+        </span>
       </button>
 
       {/* Modal */}
@@ -54,36 +56,41 @@ const Cart = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th>
-                      <button className="badge bg-danger">
-                        <i className="fas fa-window-close"></i>
-                      </button>
-                    </th>
-                    <th>
-                      <img
-                        className="img-fluid img-thumbnail"
-                        src="./images/produtos/fla.jpg"
-                        alt="Flamengo 2020"
-                        width="50px"
-                      />
-                    </th>
-                    <th>
-                      <span className="badge badge-pill bg-warning">2</span>
-                    </th>
-                    <th>R$ 100.00</th>
-                    <th>
-                      <button className="badge badge-pill bg-primary">
-                        <i className="fas fa-plus"></i>
-                      </button>
-                    </th>
-                    <th>
-                      <button className="badge badge-pill bg-danger">
-                        <i className="fas fa-minus"></i>
-                      </button>
-                    </th>
-                    <th>R$ 200.00</th>
-                  </tr>
+                  {cart.Cart.map((item) => {
+                    return (
+                      <tr>
+                        <th>
+                          <button className="badge bg-danger">
+                            <i className="fas fa-window-close"></i>
+                          </button>
+                        </th>
+                        <th>
+                          <img
+                            className="img-fluid img-thumbnail"
+                            src={item.image}
+                            alt={item.name}
+                            width="50px"
+                          />
+                        </th>
+                        <th>
+                          <span className="badge badge-pill bg-warning">2</span>
+                        </th>
+                        <th>{item.price.toFixed(2)}</th>
+                        <th>
+                          <button className="badge badge-pill bg-primary">
+                            <i className="fas fa-plus"></i>
+                          </button>
+                        </th>
+                        <th>
+                          <button className="badge badge-pill bg-danger">
+                            <i className="fas fa-minus"></i>
+                          </button>
+                        </th>
+                        <th>R$ 200.00</th>
+                      </tr>
+                    );
+                  })}
+
                   <tr>
                     <th colSpan="2" scope="col">
                       Total
