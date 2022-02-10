@@ -23,8 +23,17 @@ const RemoveItem = (cart, product) => {
     }
 }
 
+const DeleteItem = (cart, product) => {
+    return {
+        type: 'DELETE_ITEM',
+        cart,
+        product
+    }
+}
+
 export default (
     Add,
     AddItem,
-    RemoveItem
+    RemoveItem,
+    DeleteItem
 )

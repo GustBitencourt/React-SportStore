@@ -64,7 +64,7 @@ export default function cart(state = INITIAL_STATE, action) {
                 value: (state.cart.value + 1)
             }
 
-        case 'RemoveItem':
+        case 'REMOVE_ITEM':
             if(action.product.quantity > 1) {
                 action.product.quantity--
                 return {
@@ -74,6 +74,15 @@ export default function cart(state = INITIAL_STATE, action) {
 
             } else {
                 return state;
+            }
+
+        case 'DELETE_ITEM':
+            return {
+                ...state,
+                value: (action.cart.value - action.product.quantity),
+                Cart: state.Cart.filter(item => {
+                    return item.id !== action.product.id;
+                })
             }
 
 

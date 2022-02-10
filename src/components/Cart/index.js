@@ -62,7 +62,7 @@ const Cart = () => {
                     return (
                       <tr key={item.id}>
                         <th>
-                          <button className="badge bg-danger">
+                          <button onClick={() => dispatch(cartActions.DeleteItem(cart, item))} className="badge bg-danger">
                             <i className="fas fa-window-close"></i>
                           </button>
                         </th>
