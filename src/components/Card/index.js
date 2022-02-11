@@ -12,9 +12,8 @@ const useStyles = makeStyles((theme) => ({
 const Card = ({ product, children }) => {
   const cart = useSelector(state => state.cart.value);
   const dispatch = useDispatch();
-  const classes = useStyles();  
-
-  console.log(product)
+  const classes = useStyles();
+  
 
   return (    
     <Grid item xs={3}>

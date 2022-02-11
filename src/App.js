@@ -7,11 +7,15 @@ import MainRoutes from './routes/routes';
 import { Container } from '@material-ui/core/';
 
 const App = () => {
+  const localCart = JSON.parse(localStorage.getItem('SportStore: cart'))
 
+  if(localCart !== null) {
+    store.dispatch({type: 'CHANGE_CART', localCart})
+  }
 
   return(
     <Provider store={store}>
-      <Container maxWidth="xl">
+      <Container>
         <BrowserRouter>
           <Header />
           <MainRoutes />

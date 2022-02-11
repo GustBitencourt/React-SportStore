@@ -2,17 +2,22 @@ import { useSelector, useDispatch } from "react-redux";
 import cartActions from "../ReduxStore/actions/cart";
 
 const Cart = () => {
-  const cart = useSelector(state => state.cart);
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   let totalPrice = 0;
-  //somando os preços dos items no carrinho 
-  if(cart.value > 0) {
-    for(let i = 0; i < cart.Cart.length; i++) {
-      //totalPrice recebe
-      totalPrice += cart.Cart[i].price * cart.Cart[i].quantity;
-    }
+  //somando os preços dos items no carrinho
+  for (let i = 0; i < cart.Cart.length; i++) {
+    //totalPrice recebe
+    totalPrice += cart.Cart[i].price * cart.Cart[i].quantity;
   }
+
+  //localStora
+  if (cart.value > 0) {
+    localStorage.setItem("SportStore: cart", JSON.stringify(cart));
+  }
+
+  
 
   return (
     <>
@@ -71,7 +76,12 @@ const Cart = () => {
                     return (
                       <tr key={item.id}>
                         <th>
-                          <button onClick={() => dispatch(cartActions.DeleteItem(cart, item))} className="badge bg-danger">
+                          <button
+                            onClick={() =>
+                              dispatch(cartActions.DeleteItem(cart, item))
+                            }
+                            className="badge bg-danger"
+                          >
                             <i className="fas fa-window-close"></i>
                           </button>
                         </th>
