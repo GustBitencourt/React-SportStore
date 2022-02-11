@@ -15,10 +15,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Home = () => {
+  const classes = useStyles();
   //pegando os products
   const products = useSelector(state => state.products);
-
-  const classes = useStyles();
 
   const categorys = products.map(category => {
     //container vai armazenar as informações de category vinda da store/redux
@@ -48,13 +47,12 @@ const Home = () => {
   let count = { };
   //for contando os items
   for(let i = 0; i < arrayCategory.length; i++) {
-    // eslint-disable-next-line no-lone-blocks
-    {
-      // a chave do objeto será o nome da categoria
-      let key = arrayCategory[i];
-      //ternario somando as categorias com mesmo nome e fazendo a soma
-      count[key] = (count[key] ? count[key] + 1 : 1);
-      }
+    
+    // a chave do objeto será o nome da categoria
+    let key = arrayCategory[i];
+    //ternario somando as categorias com mesmo nome e fazendo a soma
+    count[key] = (count[key] ? count[key] + 1 : 1);
+      
   }
 
   return (

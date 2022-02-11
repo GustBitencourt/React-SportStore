@@ -80,7 +80,7 @@ export default function cart(state = INITIAL_STATE, action) {
                 ...state,
                 value: (action.cart.value - action.product.quantity),
                 Cart: state.Cart.filter(item => {
-                    return item.id !== action.product.id;
+                    return item.id !== action.product.id
                 })
             }
 
@@ -90,6 +90,5 @@ export default function cart(state = INITIAL_STATE, action) {
         default:
             return state;
     }
-    return state;
 }
 

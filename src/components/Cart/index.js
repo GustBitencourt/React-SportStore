@@ -11,12 +11,12 @@ const Cart = () => {
     //totalPrice recebe
     totalPrice += cart.Cart[i].price * cart.Cart[i].quantity;
   }
+  
 
   //localStora
   if (cart.value > 0) {
     localStorage.setItem("SportStore: cart", JSON.stringify(cart));
   }
-
   
 
   return (
