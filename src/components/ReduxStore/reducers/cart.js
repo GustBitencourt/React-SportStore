@@ -34,7 +34,7 @@ export default function cart(state = INITIAL_STATE, action) {
                         state.Cart[key].quantity++;
                         check = true;
                     }
-                })
+                });
                 //se o check for true ele adiciona o item ao carrinho, aumentando sua quantidade
                 if (!check) {
                     //definindo o item na action
@@ -54,14 +54,13 @@ export default function cart(state = INITIAL_STATE, action) {
                 ...state,
                 value: ( state.value + 1 )
             }
-
         
         case 'ADD_ITEM':
             action.product.quantity++
 
             return {
                 ...state,
-                value: (state.cart.value + 1)
+                value: (action.cart.value + 1)
             }
 
         case 'REMOVE_ITEM':
@@ -91,5 +90,6 @@ export default function cart(state = INITIAL_STATE, action) {
         default:
             return state;
     }
+    return state;
 }
 

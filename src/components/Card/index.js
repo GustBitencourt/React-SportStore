@@ -28,7 +28,7 @@ const Card = ({ product, children }) => {
 
           <Button
             variant="contained"
-            onClick={() => dispatch(cartActions.Add(cart, product))}
+            onClick={()=>dispatch(cartActions.Add(cart, product))}
           >
             Adicionar
           </Button>

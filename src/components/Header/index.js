@@ -7,11 +7,11 @@ const Header = () => {
     <Grid
       container
       direction="row"
-      justify="space-between"
+      justifyContent="space-between"
       alignItems="center"
       xs={12}
     >
-      <Typography variant="h3">Dio Shopping</Typography>
+      <Typography variant="h3">Sport Store</Typography>
       <Link to="/">
         <Button color="primary">Home</Button>
       </Link>

@@ -48,10 +48,13 @@ const Home = () => {
   let count = { };
   //for contando os items
   for(let i = 0; i < arrayCategory.length; i++) {
-    // a chave do objeto será o nome da categoria
-    let key = arrayCategory[i];
-    //ternario somando as categorias com mesmo nome e fazendo a soma
-    count[key] = (count[key] ? count[key] + 1 : 1);
+    // eslint-disable-next-line no-lone-blocks
+    {
+      // a chave do objeto será o nome da categoria
+      let key = arrayCategory[i];
+      //ternario somando as categorias com mesmo nome e fazendo a soma
+      count[key] = (count[key] ? count[key] + 1 : 1);
+      }
   }
 
   return (
@@ -84,10 +87,6 @@ const Home = () => {
           return (
             <Card
               key={item.id_product}
-              //id={item.id_product}
-              //name={item.name_product}
-              //price={item.price}
-              //urlImg={item.image}
               product={item}
             >
               {item.name_product}
