@@ -7,31 +7,50 @@ const Contato = () => {
   const [autor, setAutor] = useState("");
   const [conteudo, setConteudo] = useState("");
   const [validate, setValidate] = useState(false);
+  const [render, setRender] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-  useEffect(async () => {
-    const response = await fetch(url);
-    const data = await response.json();
-    setMessages(data);
-  }, []);
+  useEffect(() => {
+    async function loadApiInfo() {
+      const response = await fetch(url);
+      const data = await response.json();
+      setMessages(data);
+    }
+    loadApiInfo()
+    
+  }, [render]);
 
   const sendMessage = () => {
     setValidate(false);
-    if (autor.length <= 0 || conteudo.length) {
+    if (autor.length <= 0 || conteudo.length <= 0) {
       return setValidate(!validate);
     }
 
     const bodyForm = {
       email: autor,
-      message: conteudo
-    }
+      message: conteudo,
+    };
     /* Parametros dos post */
     fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(bodyForm)
+      body: JSON.stringify(bodyForm),
     })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.id) {
+          setRender(true);
+          setSuccess(true);
+          setTimeout(() => {
+            setSuccess(false);
+          }, 5000)
+        }
+      });
+
+    setAutor("");
+    setConteudo("");
   };
 
   /* useEffect(() => {
@@ -74,6 +93,15 @@ const Contato = () => {
               data-bs-dismiss="alert"
               aria-label="Close"
             ></button>
+          </div>
+        )}
+
+        {success && (
+          <div
+            className="alert alert-success alert-dismissible fade show mt-2"
+            role="alert"
+          >
+            <strong>Mensagem foi enviada</strong>
           </div>
         )}
       </Grid>
